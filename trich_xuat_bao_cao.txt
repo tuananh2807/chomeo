@@ -1,0 +1,1185 @@
+ 
+ 
+1 
+                                                     MỤC LỤC 
+LỜI NÓI ĐẦU ................................ ................................ ................................ . 4 
+LỜI CẢM ƠN ................................ ................................ ................................ .. 5 
+CHƯƠNG 1: TỔNG QUAN ĐỀ TÀI ................................ ............................  5 
+1. Đặt vấn đề ................................ ................................ ................................ .... 5 
+1.1 Mô t ả bài toán  ................................ ................................ ..............................  5 
+1.2 Input c ủa hệ thống ................................ ................................ .......................  5 
+1.3 Output c ủa hệ thống ................................ ................................ ....................  5 
+2. Lý do ch ọn đề tài ................................ ................................ .........................  7 
+3. M ục tiêu c ủa đề tài ................................ ................................ ......................  8 
+4. Đóng góp c ủa báo cáo  ................................ ................................ ...............  10 
+CHƯƠNG 2.  CƠ S Ở LÝ THUY ẾT & CÁC NGHIÊN C ỨU LIÊN QUAN
+ ................................ ................................ ................................ .........................  11 
+1. Các nghiên c ứu liên quan:  ................................ ................................ ........  11 
+2. Cơ s ở lý thuy ết ................................ ................................ ...........................  12 
+2.1. M ạng nơ -ron tích ch ập (CNN)  ................................ ................................ . 12 
+2.2. T ối ưu hóa mô hình trong th ực tế ................................ .............................  13 
+CHƯƠNG 3. PHƯƠNG PHÁP TH ỰC HI ỆN ................................ ...........  16 
+1. Mô t ả dữ liệu ................................ ................................ ..............................  16 
+1.1 ngu ồn dữ liệu ................................ ................................ ...........................  16 
+1.2 Kích thư ớc dữ liệu ................................ ................................ .....................  16 
+1.3. Phân chia d ữ liệu ................................ ................................ ......................  17 
+2. Khám phá và Ti ền xử lý dữ liệu ................................ ..............................  17 
+2.1 Khám phá d ữ liệu (EDA)  ................................ ................................ ..........  17 
+2.2 Làm s ạch dữ liệu (Data Cleaning)  ................................ ............................  17 
+
+ 
+ 
+2 
+ 2.3 Bi ến đổi dữ liệu (Preprocessing)  ................................ ............................  18 
+2.4. tăng cư ờng dữ liệu ................................ ................................ ..................  18 
+3. Mô hình đ ề xuất (Proposed Model/Architecture)  ................................ .. 19 
+3.1 Ki ến trúc t ổng th ể   ................................ ................................ ..................  19 
+3.2 Hàm m ất mát (Loss Function)  ................................ ...............................  20 
+3.3 Thu ật toán t ối ưu (Optimizer)  ................................ ...............................  21 
+CHƯƠNG 4. TH ỰC NGHI ỆM VÀ K ẾT QU Ả ................................ .........  22 
+1. Môi trư ờng th ực nghi ệm ................................ ................................ ..........  22 
+2. Các siêu tham s ố (Hyperparameters)  ................................ ......................  22 
+3. Tiêu chí đánh giá (Evaluation Metrics)  ................................ ..................  23 
+4. Kết quả thực nghi ệm ................................ ................................ .................  25 
+4.1. Learning Curve (Quá trình h ọc của mô hình ) ................................ .... 25 
+4.2. Confusion Matrix (Ma tr ận nh ầm lẫn) ................................ ................  26 
+4.3. B ảng kết quả và so sánh mô hình  ................................ .........................  27 
+CHƯƠNG 5. TH ẢO LU ẬN VÀ PHÂN TÍCH L ỖI ................................ .. 29 
+1. Phân tích k ết quả: ................................ ................................ .....................  29 
+2. Phân tích l ỗi (Error Analysis)  ................................ ................................ .. 30 
+2.1. Phân lo ại lỗi ................................ ................................ ..............................  2 
+2.2. Nguyên nhân gây l ỗi ................................ ................................ ...............  31 
+3. Hạn chế của hệ thống (Limitations)  ................................ ........................  32 
+CHƯƠNG 6: K ẾT LU ẬN VÀ HƯ ỚNG PHÁT TRI ỂN ...........................  34 
+1. Kết luận ................................ ................................ ................................ ...... 34 
+2. Hư ớng phát tri ển ................................ ................................ .......................  35 
+TÀI LI ỆU THAM KH ẢO ................................ ................................ ............  37 
+PHỤ LỤC ................................ ................................ ................................ ....... 38 
+
+ 
+ 
+3 
+                                            LỜI NÓI ĐẦU 
+     Trong  thời đại công ngh ệ số hiện nay, Trí tu ệ nhân t ạo (AI)  và Học máy 
+(Machine Learning)  đang phát tri ển mạnh m ẽ và đư ợc ứng dụng rộng rãi trong 
+nhiều lĩnh v ực, đặc biệt là trong x ử lý và phân tích hình ảnh. Vi ệc giúp máy 
+tính có kh ả năng nh ận diện và phân lo ại các đ ối tượng trong ảnh là m ột trong 
+những hư ớng nghiên c ứu quan tr ọng và có tính ứng dụng cao.  Xuất phát t ừ thực 
+tiễn đó, em l ựa chọn đề tài: “Xây d ựng hệ thống nh ận diện chó và mèo” . Đây 
+là một bài toán thu ộc lĩnh v ực phân lo ại ảnh, trong đó h ệ thống sẽ nhận đầu vào 
+là hình ảnh và đưa ra k ết quả phân lo ại tương ứng là chó ho ặc mèo.  Mục tiêu 
+của đề tài là xây d ựng m ột hệ thống hoàn ch ỉnh, bao g ồm việc thiết kế và hu ấn 
+luyện mô hình h ọc máy, đ ồng th ời phát tri ển một ứng dụng web cho phép ngư ời 
+dùng t ải ảnh lên và nh ận kết quả dự đoán m ột cách tr ực quan. Ngoài ra, h ệ 
+thống còn đư ợc thiết kế với cơ ch ế phân quy ền ngư ời dùng nh ằm tăng tính th ực 
+tiễn và kh ả năng ứng dụng. Thông qua quá trình th ực hiện đề tài, em đã có cơ 
+hội vận dụng các ki ến thức đã h ọc về học máy, đ ặc biệt là mô hình m ạng nơ -
+ron tích ch ập (CNN), đ ồng th ời nâng cao k ỹ năng l ập trình và xây d ựng hệ 
+thống th ực tế. Mặc dù đã c ố gắng hoàn thi ện đề tài m ột cách t ốt nhất, tuy nhiên 
+do hạn chế về thời gian và kinh nghi ệm, báo cáo không tránh kh ỏi những thi ếu 
+sót. Em r ất mong nh ận được sự góp ý t ừ giảng viên đ ể có th ể hoàn thi ện hơn 
+trong tương lai.  Em xin chân thành c ảm ơn gi ảng viên đã t ận tình hư ớng dẫn 
+và hỗ trợ em trong su ốt quá trình th ực hiện đề tài. 
+ 
+ 
+  
+
+ 
+ 
+4 
+ LỜI CẢM ƠN 
+Trong quá trình th ực hiện bài t ập lớn môn L ập trình nâng cao  với đề tài 
+“Xây d ựng hệ thống nh ận diện chó và mèo ”, chúng  em đã nh ận được sự quan 
+tâm, hư ớng dẫn và h ỗ trợ quý báu t ừ thầy cô, b ạn bè.  
+Trước hết, em xin bày t ỏ lòng bi ết ơn sâu s ắc tới thầy Nguy ễn Tuấn 
+Linh , ngư ời đã tr ực tiếp giảng dạy và hư ớng dẫn em trong môn h ọc. Th ầy 
+không ch ỉ truyền đạt kiến thức chuyên môn mà còn t ận tình đ ịnh hư ớng, góp ý 
+và ch ỉnh sửa để em có th ể hoàn thành đ ề tài m ột cách t ốt nhất. Nh ững nh ận xét 
+và góp ý c ủa thầy là ngu ồn động lực quan tr ọng giúp em hoàn thi ện cả về kiến 
+thức lẫn kỹ năng th ực hành.  
+Em xin chân thành c ảm ơn các th ầy cô trong Khoa và B ộ môn Công ngh ệ 
+Thông tin đã truy ền đạt những ki ến thức nền tảng quý báu trong su ốt quá trình 
+học tập, tạo điều kiện để chúng  em có th ể vận dụng vào vi ệc nghiên c ứu và th ực 
+hiện đề tài này.  
+Bên c ạnh đó,  chúng em cũng xin c ảm ơn b ạn bè đã h ỗ trợ, trao đ ổi ý ki ến 
+và đóng góp nh ững nh ận xét h ữu ích trong quá trình th ực hiện báo cáo. Cu ối 
+cùng,  chúng  em xin g ửi lời cảm ơn t ới gia đình đã luôn đ ộng viên, t ạo điều kiện 
+thuận lợi để chúng em yên tâm h ọc tập và hoàn thành bài t ập lớn. 
+Mặc dù đã c ố gắng hoàn thi ện báo cáo trong kh ả năng cho phép, song do 
+thời gian và ki ến thức còn h ạn chế, nội dung báo cáo không tránh kh ỏi những 
+thiếu sót. Chúng  em kính mong nh ận được sự thông c ảm và nh ững ý ki ến đóng 
+góp t ừ thầy cô đ ể báo cáo đư ợc hoàn thi ện hơn.  
+ 
+  
+
+ 
+ 
+5 
+ CHƯƠNG  1: TỔNG QUAN   
+1. Đặt vấn đề 
+Trong  bối cảnh công ngh ệ thông tin phát tri ển mạnh m ẽ, đặc biệt là lĩnh 
+vực Trí tu ệ nhân t ạo (Artificial Intelligence)  và Học máy (Machine Learning) , 
+việc xử lý và phân tích d ữ liệu hình ảnh ngày càng tr ở nên quan tr ọng. M ột 
+trong nh ững bài toán tiêu bi ểu trong lĩnh v ực này là phân lo ại hình ảnh (Image 
+Classification) , trong đó máy tính đư ợc yêu c ầu nhận diện và phân bi ệt các đ ối 
+tượng khác nhau d ựa trên n ội dung c ủa ảnh. 
+Trong th ực tế, việc phân bi ệt các loài đ ộng vật như chó và mèo tư ởng 
+chừng đơn gi ản đối với con ngư ời, nhưng l ại là m ột thách th ức đối với máy 
+tính. Nguyên nhân là do s ự đa dạng về hình dáng, màu s ắc, góc ch ụp, ánh sáng 
+cũng như ch ất lượng ảnh. Do đó, vi ệc xây d ựng m ột hệ thống có kh ả năng t ự 
+động nh ận diện chó và mèo t ừ ảnh là m ột bài toán có ý nghĩa c ả về mặt học 
+thuật lẫn thực tiễn. 
+          Xuất phát t ừ yêu c ầu đó, đ ề tài “Xây d ựng hệ thống nh ận diện chó và 
+mèo”  được thực hiện nhằm giải quy ết bài toán phân lo ại ảnh nh ị phân (binary 
+classification), trong đó h ệ thống sẽ tự động xác đ ịnh m ột hình ảnh đầu vào 
+thuộc lớp “chó” hay “mèo”.  
+1.1 Mô t ả bài toán  
+          Bài toán đ ặt ra là xây d ựng m ột mô hình h ọc máy có kh ả năng h ọc từ dữ 
+liệu ảnh và đưa ra d ự đoán chính xác cho các ảnh m ới chưa t ừng xu ất hiện trong 
+quá trình hu ấn luy ện. Hệ thống cần đảm bảo: 
+• Khả năng x ử lý ảnh đầu vào t ừ người dùng  
+• Đưa ra k ết quả dự đoán nhanh chóng  
+• Đảm bảo độ chính xác cao trong vi ệc phân lo ại 
+Ngoài ra, h ệ thống còn đư ợc tích h ợp vào m ột ứng dụng web nh ằm giúp ngư ời 
+dùng d ễ dàng tương tác và s ử dụng. 
+ 
+ 
+ 
+
+ 
+ 
+6 
+ 1.2 Input c ủa hệ thống 
+          Input c ủa hệ thống là một ảnh số được ngư ời dùng t ải lên thông qua giao 
+diện web. Ảnh này s ẽ được sử dụng làm d ữ liệu đầu vào cho mô hình h ọc máy.  
+• Nguồn ảnh: 
+o Người dùng (User) ho ặc khách (Guest) t ải lên t ừ máy tính cá nhân  
+• Định d ạng ảnh h ỗ trợ: 
+o JPG (.jpg, .jpeg)  
+o PNG (.png)  
+• Đặc điểm ảnh: 
+o Ảnh có ch ứa đối tượng chính là chó ho ặc mèo  
+o Có th ể có nhi ễu như:  
+▪ Nền phức tạp 
+▪ Nhiều đối tượng trong cùng ảnh 
+▪ Ánh sáng không đ ồng đều 
+o Kích thư ớc ảnh không c ố định (có th ể lớn/nhỏ khác nhau)  
+• Xử lý trư ớc (Preprocessing) : 
+Trước khi đưa vào mô hình, ảnh sẽ được: 
+o Resize v ề kích thư ớc chu ẩn (ví d ụ: 128x128 ho ặc 224x224)  
+o Chuẩn hóa giá tr ị pixel (đưa v ề khoảng [0,1])  
+o Chuy ển về dạng tensor (ma tr ận số) để mô hình x ử lý 
+ 
+ 
+ 
+1.3 Output c ủa hệ thống 
+          Output là k ết quả mà h ệ thống trả về sau khi x ử lý ảnh đầu vào b ằng mô 
+hình h ọc máy.  
+• Kết quả chính : 
+
+ 
+ 
+7 
+ o Nhãn phân lo ại: 
+▪ “Chó”  
+▪ “Mèo”  
+• Dạng hi ển thị: 
+o Hiển thị trực tiếp trên giao di ện web  
+o Có kèm theo thông báo như:  
+▪ “Đây là chó”  
+▪ “Đây là mèo”  
+• (Tuỳ chọn nâng cao) : 
+o Xác su ất dự đoán c ủa từng lớp: 
+▪ Ví dụ: 
+▪ Dog: 0.92 (92%)  
+▪ Cat: 0.08 (8%)  
+o Hiển thị ảnh đã upload cùng v ới kết quả 
+• Thời gian ph ản hồi: 
+o Kết quả được trả về gần như ngay l ập tức sau khi ngư ời dùng t ải 
+ảnh lên (vài giây)  
+2. Lý do chọn đề tài 
+          Trong nh ững năm g ần đây, s ự phát tri ển mạnh m ẽ của Trí tu ệ nhân t ạo 
+(AI) và Học máy (Machine Learning)  đã m ở ra nhi ều ứng dụng th ực tiễn trong 
+đời sống, đ ặc biệt là trong lĩnh v ực xử lý ảnh (Computer Vision) . Một trong 
+những bài toán cơ b ản nhưng có ý nghĩa quan tr ọng là phân lo ại hình ảnh, giúp 
+máy tính có kh ả năng “hi ểu” và nh ận diện đối tượng trong ảnh. 
+          Bài toán nh ận diện chó và mèo đư ợc lựa chọn vì đây là m ột bài toán đi ển 
+hình, d ễ tiếp cận nhưng v ẫn mang đ ầy đủ đặc trưng c ủa một hệ thống học máy 
+thực tế. Việc phân bi ệt hai đ ối tượng này không ch ỉ giúp ngư ời học hiểu rõ cách 
+hoạt động của mô hình mà còn là n ền tảng để phát tri ển các h ệ thống nh ận diện 
+phức tạp hơn.  
+
+ 
+ 
+8 
+           Về mặt thực tiễn, hệ thống nh ận diện chó và mèo có th ể được ứng dụng 
+trong nhi ều lĩnh v ực như:  
+• Quản lý thú cưng : hỗ trợ phân lo ại và lưu tr ữ thông tin v ật nuôi trong 
+các h ệ thống qu ản lý 
+• Thương m ại điện tử: tự động phân lo ại sản phẩm liên quan đ ến thú cưng  
+• Giám sát và nh ận diện: hỗ trợ nhận diện động vật trong camera ho ặc 
+hệ thống an ninh  
+• Giáo d ục và nghiên c ứu: làm ví d ụ minh h ọa cho các bài toán h ọc máy 
+và xử lý ảnh 
+          Ngoài ra, đ ề tài còn giúp ngư ời thực hiện tiếp cận với quy trình xây d ựng 
+một hệ thống hoàn ch ỉnh, từ việc xử lý dữ liệu, hu ấn luy ện mô hình đ ến triển 
+khai trên n ền tảng web. Đây là nh ững kỹ năng quan tr ọng trong lĩnh v ực công 
+nghệ thông tin hi ện nay.  
+          Vì nh ững lý do trên, vi ệc lựa chọn đề tài “Xây d ựng hệ thống nh ận diện 
+chó và mèo”  là phù h ợp, có ý nghĩa c ả về mặt học thu ật lẫn thực tiễn. 
+ 
+3. Mục tiêu của đề tài  
+          Mục tiêu t ổng quát c ủa đề tài là xây d ựng m ột hệ thống ứng dụng học 
+máy có kh ả năng nh ận diện và phân lo ại hình ảnh chó và mèo m ột cách chính 
+xác, đ ồng th ời triển khai thành m ột website hoàn ch ỉnh để người dùng có th ể 
+tương tác tr ực tiếp. 
+Để đạt được mục tiêu t ổng quát đó, đ ề tài đặt ra các m ục tiêu c ụ thể như sau:  
+Xây d ựng mô hình h ọc máy  
+• Nghiên c ứu và áp d ụng mô hình mạng nơ -ron tích ch ập (CNN)  trong bài 
+toán phân lo ại ảnh 
+• Thiết kế kiến trúc mô hình phù h ợp với bài toán phân lo ại nhị phân 
+(chó/mèo)  
+• Huấn luy ện mô hình trên t ập dữ liệu đã thu th ập 
+• Tối ưu mô hình nh ằm: 
+
+ 
+ 
+9 
+ o Giảm sai s ố (loss)  
+o Tăng đ ộ chính xác (accuracy)  
+• Đạt độ chính xác t ối thiểu ≥ 80%  trên t ập dữ liệu kiểm thử (test set)  
+Xử lý và chu ẩn bị dữ liệu 
+• Thu th ập dữ liệu ảnh chó và mèo t ừ các ngu ồn phù h ợp 
+• Tiến hành làm s ạch dữ liệu: 
+o Loại bỏ ảnh lỗi, ảnh không đúng nhãn  
+• Thực hiện tiền xử lý dữ liệu: 
+o Resize ảnh về kích thư ớc chu ẩn (ví d ụ: 128x128 ho ặc 224x224)  
+o Chuẩn hóa giá tr ị pixel  
+• Chia d ữ liệu thành các t ập: 
+o Tập huấn luy ện (Training set)  
+o Tập kiểm tra (Test set)  
+Xây d ựng hệ thống website  
+• Thiết kế giao di ện web thân thi ện, dễ sử dụng 
+• Cho phép ngư ời dùng:  
+o Tải ảnh từ máy tính lên h ệ thống 
+o Xem k ết quả phân lo ại ngay trên giao di ện 
+• Đảm bảo hệ thống ho ạt động ổn định trên trình duy ệt 
+Tích h ợp mô hình vào h ệ thống 
+• Kết nối mô hình h ọc máy v ới backend c ủa website (ví d ụ: Flask)  
+• Xây d ựng API đ ể xử lý ảnh và tr ả kết quả 
+• Đảm bảo: 
+o Thời gian ph ản hồi nhanh (vài giây)  
+o Kết quả trả về chính xác và nh ất quán  
+Xây d ựng ch ức năng theo phân quy ền 
+
+ 
+ 
+10 
+ • Khách (Guest) : 
+o Có th ể truy c ập website và s ử dụng ch ức năng nh ận diện cơ b ản 
+• Người dùng (User) : 
+o Sử dụng đầy đủ chức năng nh ận diện 
+o Quản lý l ịch sử ảnh đã t ải lên (n ếu có)  
+• Quản trị viên (Admin) : 
+o Quản lý h ệ thống 
+o Quản lý d ữ liệu và ngư ời dùng  
+Đánh giá và ki ểm thử hệ thống 
+• Đánh giá hi ệu suất mô hình thông qua các ch ỉ số: 
+o Accuracy (đ ộ chính xác)  
+o Loss (hàm m ất mát)  
+• Kiểm thử hệ thống web:  
+o Kiểm tra ch ức năng upload ảnh 
+o Kiểm tra tính đúng đ ắn của kết quả 
+• Đánh giá kh ả năng ho ạt động th ực tế của hệ thốn 
+4. Đóng góp của báo cáo  
+          Báo cáo này trình bày quá trình nghiên c ứu, xây d ựng và tri ển khai h ệ 
+thống nh ận diện chó và mèo d ựa trên h ọc máy. Các đóng góp chính c ủa đề tài 
+có th ể được tóm t ắt như sau:  
+Xây d ựng mô hình nh ận diện ảnh: 
+• Đề tài đã nghiên c ứu và áp d ụng mô hình mạng nơ -ron tích ch ập 
+(CNN)  vào bài toán phân lo ại ảnh 
+• Thiết kế và hu ấn luy ện thành công mô hình có kh ả năng phân bi ệt giữa 
+hai lớp “chó” và “mèo”  
+• Đạt được độ chính xác ở mức đáp ứng yêu c ầu đề ra (≥ 80%)  
+Xây d ựng quy trình x ử lý dữ liệu: 
+
+ 
+ 
+11 
+ • Thực hiện thu th ập và t ổ chức dữ liệu ảnh ph ục vụ cho hu ấn luy ện 
+• Áp d ụng các k ỹ thuật tiền xử lý như:  
+o Chuẩn hóa kích thư ớc ảnh 
+o Chuẩn hóa giá tr ị pixel  
+• Xây d ựng quy trình chia d ữ liệu hợp lý (training/test)  
+Phát tri ển hệ thống website hoàn chỉnh: 
+• Thiết kế và xây d ựng giao di ện web cho phép ngư ời dùng t ải ảnh lên  
+• Hiển thị kết quả phân lo ại trực quan, d ễ hiểu 
+• Đảm bảo hệ thống ho ạt động ổn định trên môi trư ờng web  
+Tích h ợp mô hình h ọc máy vào ứng dụng th ực tế: 
+• Kết nối mô hình đã hu ấn luy ện với backend c ủa hệ thống 
+• Xây d ựng ch ức năng x ử lý ảnh và tr ả kết quả tự động 
+• Tạo ra m ột hệ thống có th ể sử dụng th ực tế, không ch ỉ dừng ở mức lý 
+thuyết 
+Xây d ựng hệ thống phân quy ền ngư ời dùng : 
+• Phân chia h ệ thống thành các vai trò:  
+o Khách (Guest)  
+o Người dùng (User)  
+o Quản trị viên (Admin)  
+• Đảm bảo mỗi vai trò có quy ền truy c ập và ch ức năng phù h ợp 
+Đánh giá và ki ểm thử hệ thống: 
+• Thực hiện đánh giá mô hình thông qua các ch ỉ số như Accuracy và 
+Loss  
+• Kiểm thử các ch ức năng c ủa hệ thống web  
+• Đảm bảo hệ thống ho ạt động đúng và ổn định trong th ực t 
+ 
+
+ 
+ 
+12 
+ CHƯƠNG 2. CƠ S Ở LÝ THUY ẾT & CÁC NGHIÊN C ỨU 
+LIÊN QUAN  
+1. Các nghiên c ứu liên quan:  
+          Bài toán phân lo ại hình ảnh, đ ặc biệt là phân lo ại giữa chó và mèo, là m ột 
+trong nh ững bài toán cơ b ản và quan tr ọng trong lĩnh v ực Thị giác máy tính 
+(Computer Vision). Đây thư ờng đư ợc xem là “bài toán nh ập môn” giúp đánh 
+giá hi ệu quả của các mô hình h ọc máy trư ớc khi áp d ụng vào các h ệ thống ph ức 
+tạp hơn như nh ận diện khuôn m ặt, xe t ự lái hay y t ế. 
+          Trước khi Deep Learning phát tri ển mạnh, các phương pháp truy ền thống 
+được sử dụng ph ổ biến. Các phương pháp này không h ọc trực tiếp từ dữ liệu 
+mà ph ụ thuộc vào vi ệc con ngư ời thiết kế đặc trưng th ủ công. C ụ thể, các thu ật 
+toán như SIFT, HOG hay SURF đư ợc sử dụng để trích xu ất các đ ặc trưng như 
+cạnh, góc, k ết cấu của ảnh. Sau đó, các đ ặc trưng này đư ợc đưa vào các mô 
+hình phân lo ại như SVM ho ặc KNN đ ể đưa ra d ự đoán.  
+          Tuy nhiên, các phương pháp này t ồn tại nhiều hạn chế. Việc thiết kế đặc 
+trưng yêu c ầu chuyên môn cao và khó t ổng quát hóa. Khi ảnh bị thay đ ổi về 
+góc ch ụp, ánh sáng ho ặc bị nhiễu, hiệu quả nhận diện giảm đáng k ể. Điều này 
+khiến các phương pháp truy ền thống không còn phù h ợp với các bài toán th ực 
+tế phức tạp. 
+          Từ năm 2012, v ới sự ra đời của mô hình AlexNet trong cu ộc thi 
+ImageNet, lĩnh v ực này đã có bư ớc ngo ặt lớn. Các mô hình h ọc sâu, đ ặc biệt là 
+Mạng nơ -ron tích ch ập (CNN), có kh ả năng t ự động học đặc trưng t ừ dữ liệu 
+mà không c ần con ngư ời can thi ệp. Sau đó, nhi ều kiến trúc m ạnh hơn ra đ ời 
+như VGG16, ResNet, giúp tăng đ ộ chính xác lên r ất cao.  
+          Trong các ứng dụng th ực tế, đặc biệt là trên web ho ặc thiết bị có cấu hình 
+thấp, các mô hình nh ẹ như MobileNetV2 đư ợc sử dụng rộng rãi. Khi k ết hợp 
+với kỹ thuật Học chuy ển giao (Transfer Learning), các mô hình này có th ể đạt 
+hiệu quả cao ngay c ả khi d ữ liệu huấn luy ện ít. Đây cũng chính là hư ớng tiếp 
+cận được sử dụng trong đ ề tài này.  
+ 
+ 
+
+ 
+ 
+13 
+  
+ 
+2. Cơ sở lý thuy ết  
+Hệ thống trong đ ề tài đư ợc xây d ựng dựa trên hai thành ph ần chính:  
+• Mạng nơ -ron tích ch ập (CNN)  
+• Học chuy ển giao (Transfer Learning)  
+2.1. M ạng nơ -ron tích ch ập (CNN)  
+          CNN là m ột loại mạng học sâu đư ợc thiết kế đặc biệt để xử lý dữ liệu 
+dạng lư ới như hình ảnh. Thay vì x ử lý từng pixel riêng l ẻ, CNN khai thác m ối 
+quan h ệ không gian gi ữa các pixel đ ể nhận diện đặc trưng.  
+Lớp tích ch ập (Convolutional Layer)  
+          Đây là thành ph ần quan tr ọng nh ất của CNN, có nhi ệm vụ trích xu ất 
+đặc trưng t ừ ảnh. 
+          Một bộ lọc nhỏ (kernel) s ẽ trượt qua toàn b ộ ảnh. T ại mỗi vị trí, kernel 
+thực hiện phép nhân và c ộng với vùng ảnh tương ứng để tạo ra m ột giá tr ị 
+mới. Quá trình này t ạo ra m ột “bản đồ đặc trưng” (Feature Map).  
+Công th ức toán h ọc:   
+ 
+Hiểu đơn gi ản: 
+Kernel gi ống như m ột “máy dò”. Nó s ẽ quét kh ắp ảnh để tìm các đ ặc điểm như 
+cạnh, góc, ho ặc hình d ạng. Nơi nào kh ớp thì giá tr ị sẽ cao. 
+Hàm kích ho ạt ReLU  
+Sau l ớp tích ch ập, dữ liệu được đưa qua hàm ReLU:  
+𝑓(𝑥)=max⁡(0,𝑥) 
+
+
+ 
+ 
+14 
+ Ý nghĩa:  
+• Giá tr ị âm → chuy ển thành 0  
+• Giá tr ị dương → gi ữ nguyên  
+Tác d ụng: 
+• Tăng tính phi tuy ến cho mô hình  
+• Giúp mô hình h ọc nhanh hơn  
+• Tránh hi ện tượng m ất gradient  
+Lớp Pooling (G ộp) 
+Pooling giúp gi ảm kích thư ớc dữ liệu nhưng v ẫn giữ lại thông tin quan tr ọng. 
+Trong bài s ử dụng Max Pooling:  
+• Lấy giá tr ị lớn nhất trong vùng (thư ờng 2x2)  
+Ví dụ: 
+[1 3]  
+[2 4] → l ấy 4 
+Tác d ụng: 
+• Giảm số lượng tính toán  
+• Giúp mô hình ít b ị ảnh hư ởng bởi vị trí (d ịch chuy ển ảnh) 
+Flatten và Dense  
+Sau khi qua nhi ều lớp tích ch ập và pooling, d ữ liệu sẽ được: 
+• Flatten : chuy ển từ ma tr ận 2D → vector 1D  
+• Dense (Fully Connected) : thực hiện phân lo ại 
+Lớp cuối dùng hàm sigmoid:  
+𝑓(𝑥)=1
+1+𝑒−𝑥 
+ 
+→ Tr ả về xác su ất: 
+• Gần 0 → Chó  
+
+ 
+ 
+15 
+ • Gần 1 → Mèo  
+2.2. T ối ưu hóa mô hình trong th ực tế 
+Học chuy ển giao (Transfer Learning)  
+           Vấn đề lớn nhất của đề tài là d ữ liệu ít (~100 –2000 ảnh). N ếu tự train t ừ 
+đầu, mô hình s ẽ bị overfitting.  
+Giải pháp:  
+• Sử dụng MobileNetV2 đã đư ợc huấn luy ện trên ImageNet (~14 tri ệu 
+ảnh) 
+• Giữ nguyên ph ần “trích xu ất đặc trưng”  
+• Chỉ huấn luy ện phần phân lo ại phía sau  
+Cách làm:  
+• Freeze các l ớp đầu 
+• Thêm l ớp Dense m ới 
+Lợi ích:  
+• Học nhanh hơn  
+• Độ chính xác cao hơn  
+• Không c ần nhi ều dữ liệu 
+Hàm m ất mát (Binary Cross -Entropy)  
+Dùng cho bài toán phân lo ại 2 lớp: 
+𝐿𝑜𝑠𝑠=−1
+𝑁∑[𝑁
+𝑖=1𝑦𝑖log⁡(𝑦̂𝑖)+(1−𝑦𝑖)log⁡(1−𝑦̂𝑖)] 
+ 
+Trong đó:  
+• 𝑦𝑖: giá tr ị thật (0 ho ặc 1) 
+• 𝑦̂𝑖: giá tr ị dự đoán  
+Ý nghĩa:  
+
+ 
+ 
+16 
+ • Nếu dự đoán đúng → loss nh ỏ 
+• Nếu dự đoán sai → loss l ớn 
+Mục tiêu:  
+→ Làm Loss nh ỏ nhất có th ể 
+Thuật toán t ối ưu (Optimizer)  
+Trong quá trình hu ấn luy ện, mô hình s ử dụng thu ật toán như Adam đ ể cập nhật 
+trọng số. 
+Nguyên lý:  
+• Tính đ ạo hàm c ủa Loss  
+• Điều chỉnh trọng số để giảm lỗi 
+Toàn b ộ hệ thống ho ạt động như sau:  
+• CNN → h ọc đặc trưng t ừ ảnh 
+• Transfer Learning → t ận dụng ki ến thức có s ẵn 
+• Loss → đo đ ộ sai 
+• Optimizer → s ửa sai 
+Kết hợp lại → t ạo thành m ột hệ thống AI có kh ả năng phân bi ệt chó và mèo 
+hiệu quả 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+17 
+             CHƯƠNG 3. PHƯƠNG PHÁP TH ỰC HI ỆN 
+1. Mô t ả dữ liệu 
+          Dữ liệu là y ếu tố quan tr ọng nh ất quy ết định hi ệu quả của mô hình h ọc 
+máy. Trong đ ề tài này, b ộ dữ liệu được xây d ựng với mục tiêu đ ảm bảo tính 
+đơn gi ản nhưng v ẫn đủ để mô hình h ọc được sự khác bi ệt giữa hai l ớp chó và 
+mèo.  
+          Dữ liệu được thu th ập từ hai ngu ồn chính. Th ứ nhất là từ bộ dữ liệu mở 
+“Dogs vs Cats” trên n ền tảng Kaggle – một bộ dữ liệu phổ biến trong lĩnh v ực 
+Computer Vision. Th ứ hai là d ữ liệu được thu th ập thủ công t ừ Internet nh ằm 
+bổ sung thêm s ự đa dạng về giống loài, góc ch ụp và đi ều kiện ánh sáng. Vi ệc 
+kết hợp hai ngu ồn này giúp tăng tính th ực tế của bài toán.  
+1.1 nguồn dữ liệu 
+          Dữ liệu được thu th ập từ hai ngu ồn chính. Th ứ nhất là từ bộ dữ liệu mở 
+“Dogs vs Cats” trên n ền tảng Kaggle – một bộ dữ liệu phổ biến trong lĩnh v ực 
+Computer Vision. Th ứ hai là d ữ liệu được thu th ập thủ công t ừ Internet nh ằm 
+bổ sung thêm s ự đa dạng về giống loài, góc ch ụp và đi ều kiện ánh sáng. Vi ệc 
+kết hợp hai ngu ồn này giúp tăng tính th ực tế của bài toán.  
+1.2 Kích thước dữ liệu  
+          Sau khi ch ọn lọc và làm s ạch, b ộ dữ liệu sử dụng trong hu ấn luy ện gồm 
+khoảng hơn 100 ảnh, trong đó có kho ảng 50 ảnh chó và 50 ảnh mèo. M ỗi ảnh 
+được chu ẩn hóa v ề cùng m ột kích thư ớc là: 
+160×160×3 
+ 
+Trong đó:  
+• 160 × 160: kích thư ớc không gian (chi ều rộng và chi ều cao)  
+• 3: số kênh màu (RGB)  
+Việc đưa t ất cả ảnh về cùng kích thư ớc giúp mô hình x ử lý đồng nh ất và gi ảm 
+độ phức tạp tính toán.  
+ 
+ 
+
+ 
+ 
+18 
+ 1.3. Phân chia dữ liệu 
+Dữ liệu được chia theo t ỷ lệ 80/20:  
+• 80% dùng cho Training  (huấn luy ện mô hình)  
+• 20% dùng cho Validation  (đánh giá trong quá trình h ọc) 
+Việc tách riêng t ập Validation giúp ki ểm tra kh ả năng t ổng quát hóa c ủa mô 
+hình và phát hi ện hiện tượng overfitting.  
+2. Khám phá và Ti ền xử lý dữ liệu 
+          Dữ liệu ảnh trong th ực tế thường không đ ồng nh ất, chứa nhi ễu và có th ể 
+gây sai l ệch cho mô hình. Vì v ậy, bư ớc tiền xử lý là b ắt buộc. 
+2.1 Khám phá d ữ liệu (EDA)  
+Ban đ ầu, dữ liệu có s ự mất cân b ằng nghiêm tr ọng gi ữa hai l ớp (số lượng ảnh 
+mèo l ớn hơn r ất nhiều so v ới chó). N ếu giữ nguyên, mô hình s ẽ có xu hư ớng 
+dự đoán t ất cả là “mèo”.  
+Để khắc phục, nhóm đã th ực hiện: 
+• Chọn lọc lại dữ liệu 
+• Đảm bảo số lượng gi ữa hai l ớp gần bằng nhau (≈ 50/50)  
+Điều này giúp mô hình h ọc công b ằng và không b ị thiên l ệch. 
+2.2 Làm s ạch dữ liệu (Data Cleaning)  
+Các bư ớc làm s ạch bao g ồm: 
+• Loại bỏ ảnh bị lỗi hoặc không đ ọc được 
+• Chuy ển tất cả ảnh về cùng h ệ màu RGB  
+• Loại bỏ ảnh có kích thư ớc bất thường ho ặc quá m ờ 
+Việc này giúp d ữ liệu đầu vào “s ạch”, tránh gây nhi ễu cho mô hình.  
+ 
+ 
+ 
+ 
+
+ 
+ 
+19 
+ 2.3 Biến đổi dữ liệu (Preprocessing)  
+Giá tr ị pixel ban đ ầu nằm trong kho ảng: 
+[0,255] 
+ 
+Được chu ẩn hóa v ề: 
+[0,1] 
+ 
+Theo công th ức: 
+𝑥′=𝑥
+255 
+ 
+Tác d ụng: 
+• Giúp mô hình h ọc nhanh hơn  
+• Tránh hi ện tượng gradient quá l ớn 
+• Tăng đ ộ ổn định khi hu ấn luy ện 
+2.4. tăng cường dữ liệu 
+Do d ữ liệu ít, nhóm áp d ụng kỹ thuật sinh thêm d ữ liệu bằng cách bi ến đổi ảnh 
+gốc. 
+Các phép bi ến đổi sử dụng: 
+• Xoay ảnh (rotation ≈ 20°)  
+• Dịch chuy ển ngang/d ọc (shift ≈ 10%)  
+• Phóng to/thu nh ỏ (zoom ≈ 20%)  
+• Lật ảnh (flip ngang)  
+Ý nghĩa:  
+• Tạo ra nhi ều phiên b ản khác nhau t ừ một ảnh 
+• Giúp mô hình h ọc được nhi ều góc nhìn  
+• Giảm overfitting  
+
+ 
+ 
+20 
+ → Từ ~100 ảnh có th ể “biến” thành hàng nghìn ảnh trong quá trình train  
+ 
+3. Mô hình đ ề xuất (Proposed Model/Architecture)  
+          Do d ữ liệu hạn ch ế, nên không xây d ựng CNN t ừ đầu mà s ử dụng 
+Transfer Learning  với mô hình MobileNetV2.  
+3.1 Kiến trúc tổng thể  
+Sơ đồ khối hệ thống: 
+                        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+21 
+ Pipeline c ủa hệ thống: 
+                                    
+• Giải thích  
+• MobileNetV2 (Pre -trained)  
+• Là mô hình đã đư ợc huấn luy ện trên ImageNet (~14 tri ệu ảnh) 
+• Sử dụng Depthwise Separable Convolution giúp gi ảm số tham s ố 
+• Trong bài: đóng băng (freeze)  → không c ập nhật trọng số 
+→ Vai trò: trích xu ất đặc trưng hình ảnh 
+• GlobalAveragePooling2D  
+• Chuy ển tensor 2D thành vector 1D  
+• Giảm số tham s ố so với Flatten  
+→ Giúp mô hình nh ẹ hơn và tránh overfitting  
+• Dense (128 neurons, ReLU)  
+• Học các đ ặc trưng c ấp cao  
+• Kích ho ạt ReLU giúp h ọc phi tuy ến 
+• Dropout (0.3)  
+• Ngẫu nhiên t ắt 30% neuron trong lúc train  
+→ Tác d ụng: 
+• Tránh overfitting  
+
+
+ 
+ 
+22 
+ • Giúp mô hình h ọc tổng quát hơn  
+• Output Layer (Sigmoid)  
+• 1 neuron duy nh ất 
+• Trả về xác su ất trong kho ảng [0,1]  
+→ Quy ư ớc: 
+• < 0.5 → Chó  
+• ≥ 0.5 → Mèo  
+3.2 Hàm m ất mát (Loss Function)  
+          Trong bài toán này, s ử dụng hàm m ất mát Binary Cross -Entropy , vì đây 
+là bài toán phân lo ại 2 lớp (chó và mèo).  
+Công th ức: 
+𝐿𝑜𝑠𝑠=−(𝑦⋅log⁡(𝑝)+(1−𝑦)⋅log⁡(1−𝑝)) 
+ 
+Trong đó:  
+• 𝑦: nhãn th ực (0 ho ặc 1) 
+• 𝑝: xác su ất dự đoán c ủa mô hình  
+Hiểu đơn gi ản: 
+• Nếu dự đoán đúng → loss nh ỏ 
+• Nếu dự đoán sai → loss l ớn 
+Mục tiêu c ủa mô hình là giảm loss xu ống th ấp nhất có th ể. 
+3.3 Thuật toán t ối ưu (Optimizer)  
+Đề tài sử dụng thu ật toán t ối ưu Adam (Adaptive Moment Estimation) . 
+Adam là m ột trong nh ững optimizer ph ổ biến nhất hiện nay vì:  
+• Học nhanh  
+• Tự điều chỉnh tốc độ học (learning rate)  
+• Hoạt động tốt trên nhi ều loại dữ liệu 
+
+ 
+ 
+23 
+ hiểu đơn gi ản: 
+• Model d ự đoán sai → optimizer đi ều chỉnh trọng số 
+• Lặp lại nhiều lần → model ngày càng chính xác hơn  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+24 
+ CHƯƠNG 4. THỰC NGHI ỆM VÀ K ẾT QU Ả  
+1.  Môi trư ờng th ực nghi ệm 
+          Để đảm bảo tính nh ất quán và kh ả năng tái l ập của hệ thống, toàn b ộ 
+quá trình xây d ựng, hu ấn luy ện và tri ển khai mô hình đư ợc thực hiện trong 
+môi trư ờng sau:  
+• Hệ điều hành : Windows 10 
+• Ngôn ng ữ lập trình : Python 3.12  
+• Thư vi ện học máy (Deep Learning Framework) : 
+• TensorFlow  
+• Keras 3.0  
+→ Dùng đ ể xây d ựng, hu ấn luy ện và load mô hình MobileNetV2  
+• Thư vi ện hỗ trợ: 
+• NumPy: x ử lý ma tr ận dữ liệu 
+• Pillow (PIL): đ ọc và x ử lý ảnh 
+• Matplotlib, Seaborn: v ẽ biểu đồ (learning curve, confusion matrix)  
+• Flask: xây d ựng web  
+• SQLite: lưu l ịch sử dự đoán  
+Môi trư ờng này đ ảm bảo: 
+• Chạy được trên CPU (không c ần GPU)  
+• Dễ triển khai web th ực tế 
+ 
+2. Các siêu tham s ố (Hyperparameters)  
+         Các siêu tham s ố được thiết lập trong quá trình hu ấn luy ện mô hình và 
+được lưu l ại để đảm bảo khả năng tái s ử dụng: 
+ 
+
+ 
+ 
+25 
+ • Kích thư ớc ảnh đ ầu vào (Input Shape) : 
+160×160×3 
+ 
+→ Phù h ợp với chu ẩn của MobileNetV2  
+• Batch Size : 32 
+→ M ỗi lần mô hình x ử lý 32 ảnh trư ớc khi c ập nhật trọng số 
+Ý nghĩa:  
+• Batch nh ỏ → học chi ti ết hơn nhưng lâu  
+• Batch l ớn → nhanh hơn nhưng d ễ sai 
+→ 32 là m ức cân b ằng tốt 
+• Số Epochs : 10 
+→ Mô hình h ọc qua toàn b ộ dữ liệu 10 l ần 
+Do dùng Transfer Learning nên:  
+• Không c ần train lâu  
+• Mô hình v ẫn hội tụ nhanh  
+• Dropout : 0.3 
+→ Tắt ngẫu nhiên 30% neuron trong lúc train  
+Tác d ụng: 
+• Tránh overfitting  
+• Giúp mô hình h ọc tổng quát hơn  
+• Optimizer : Adam  
+→ Tự điều chỉnh learning rate → h ọc nhanh, ổn định 
+• Loss Function : Binary Crossentropy  
+→ Phù h ợp bài toán phân lo ại 2 lớp (Chó/Mèo)  
+ 
+
+ 
+ 
+26 
+ 3. Tiêu chí đánh giá (Evaluation Metrics)  
+Để đánh giá mô hình m ột cách toàn di ện, nhóm s ử dụng 4 ch ỉ số chính:  
+• Accuracy (Đ ộ chính xác)  
+𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦 =𝑇𝑃+𝑇𝑁
+𝑇𝑃+𝑇𝑁+𝐹𝑃+𝐹𝑁 
+ 
+→ Tỷ lệ dự đoán đúng trên toàn b ộ dữ liệu 
+Dùng đ ể đánh giá t ổng th ể mô hình  
+• Precision (Đ ộ chính xác dương)  
+𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛 =𝑇𝑃
+𝑇𝑃+𝐹𝑃 
+ 
+→ Trong t ất cả ảnh dự đoán là “Mèo”, có bao nhiêu ảnh đúng  
+Tránh trư ờng hợp: 
+• Máy “đoán b ừa” là mèo  
+• Recall (Đ ộ nhạy) 
+𝑅𝑒𝑐𝑎𝑙𝑙=𝑇𝑃
+𝑇𝑃+𝐹𝑁 
+ 
+→ Trong t ất cả mèo th ật, máy nh ận ra đư ợc bao nhiêu  
+Tránh b ỏ sót 
+• F1-Score  
+𝐹1=2⋅𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛 ⋅𝑅𝑒𝑐𝑎𝑙𝑙
+𝑃𝑟𝑒𝑐𝑖𝑠𝑖𝑜𝑛 +𝑅𝑒𝑐𝑎𝑙𝑙 
+ 
+→ Trung bình gi ữa Precision và Recall  
+Quan tr ọng khi d ữ liệu không cân b ằng 
+
+ 
+ 
+27 
+ 4. Kết quả thực nghi ệm 
+4.1. Learning Curve (Quá trình h ọc của mô hình
+ 
+                      Hình 4.1: Bi ểu đồ Accuracy và Loss theo Epoch  
+Phân tích:  
+Quan sát bi ểu đồ cho th ấy: 
+• Accuracy (Train)  tăng nhanh t ừ khoảng ~50% lên trên 90% ch ỉ sau vài 
+epoch đ ầu 
+• Validation Accuracy  cũng tăng đ ều và bám sát đư ờng train  
+→ Đi ều này ch ứng tỏ: 
+• Mô hình h ọc được đặc trưng t ốt 
+• Không b ị lệch gi ữa train và validation  
+• Loss gi ảm mạnh từ giá tr ị cao ban đ ầu xuống gần 0 
+→ Ch ứng tỏ: 
+• Sai s ố giảm dần 
+• Mô hình đang t ối ưu t ốt 
+Quan tr ọng nh ất: 
+• Khoảng cách gi ữa Train và Validation r ất nhỏ 
+→ KHÔNG b ị: 
+
+
+ 
+ 
+28 
+ • Overfitting (h ọc vẹt) 
+• Underfitting (chưa h ọc đủ) 
+→ Mô hình h ọc “chu ẩn” 
+ 
+4.2. Confusion Matrix (Ma tr ận nh ầm lẫn) 
+           
+                        hình 4.2: Ma tr ận nhầm lẫn trên t ập kiểm tra  
+giải thích:  
+ 
+Phân tích:  
+
+
+ 
+ 
+29 
+ • Các giá tr ị nằm trên đư ờng chéo chính (TN, TP) chi ếm đa s ố 
+→ Mô hình d ự đoán đúng ph ần lớn dữ liệu 
+• Các ô ngoài đư ờng chéo (FP, FN) r ất ít 
+→ Tỷ lệ nhầm lẫn thấp 
+Ý nghĩa:  
+• Mô hình phân bi ệt tốt giữa chó và mèo  
+• Sai s ố chủ yếu đến từ: 
+o Ảnh m ờ 
+o Góc ch ụp khó  
+o Đặc điểm giống nhau  
+ 
+4.3. Bảng kết quả và so sánh mô hình  
+     
+                     Hình 4.3: B ảng tổng hợp các ch ỉ số đánh giá  
+Kết quả đạt được ( ví dụ ) 
+ 
+Phân tích:  
+
+
+ 
+ 
+30 
+ • CNN t ự xây: 
+• Không đ ủ dữ liệu 
+• Dễ overfitting ho ặc đoán mò  
+→ Accuracy th ấp (~50%)  
+• MobileNetV2:  
+• Dùng ki ến thức từ ImageNet  
+• Học nhanh, ổn định 
+→ Accuracy ~90%+  
+Kết luận quan tr ọng: 
+• Transfer Learning vư ợt trội hoàn toàn  
+• Giải quy ết tốt bài toán d ữ liệu ít 
+Kết quả thực nghi ệm đã ch ứng minh r ằng vi ệc áp d ụng Transfer Learning v ới 
+MobileNetV2 giúp mô hình đ ạt hiệu suất cao ngay c ả khi d ữ liệu huấn luy ện 
+hạn chế, đồng th ời đảm bảo khả năng tri ển khai th ực tế trên n ền tảng web  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+31 
+           CHƯƠNG 5. THẢO LU ẬN VÀ PHÂN TÍCH L ỖI  
+1. Phân tích k ết quả:  
+Tại sao mô hình ho ạt động tốt/không t ốt? 
+          Trong quá trình xây d ựng và phát tri ển hệ thống, hi ệu suất của mô hình 
+biến thiên m ạnh m ẽ qua hai giai đo ạn, qua đó đ ể lộ bản chất của việc tại sao 
+mô hình có lúc l ại không ho ạt động, và t ại sao cu ối cùng l ại đạt kết quả xuất 
+sắc. 
+Giai đo ạn 1: T ại sao mô hình ban đ ầu ho ạt động không  tốt (Dự đoán sai 
+lệch)? 
+• Trạng thái m ất cân b ằng d ữ liệu (Data Imbalance):  Ở pha hu ấn luy ện 
+đầu tiên, b ộ dữ liệu tồn tại tỷ lệ chênh l ệch lớp cực đoan: x ấp xỉ 1900 ảnh 
+Mèo nhưng ch ỉ có 50 ảnh Chó (Mèo chi ếm hơn 97% t ập dữ liệu). Lúc này, 
+mạng CNN rơi vào tr ạng thái "đánh l ừa" hàm m ục tiêu (Ngh ịch lý Accuracy 
+Paradox). B ất kể ảnh đầu vào là gì, m ạng đều dự đoán là "Mèo" đ ể dễ dàng 
+thu v ề mức Accuracy danh nghĩa lên t ới 97%, nhưng th ực chất nó hoàn toàn 
+"vô d ụng" trong vi ệc nhận diện Chó.  
+• Mạng CNN t ừ con s ố không (Training from scratch):  Thiết kế mạng ban 
+đầu là ki ến trúc Sequential trích xu ất truy ền thống. Đi ểm yếu là m ạng này 
+cần hàng trăm nghìn m ẫu ảnh kh ổng lồ mới học được tổ hợp nét h ọa tiết 
+(đường cong não, mép tai). Vi ệc nạp vỏn vẹn 100 ảnh tự cấp khi ến mô hình 
+rơi vào "Overfitting": Nó ch ỉ học thu ộc lòng 100 ảnh đem d ạy giống như 
+học vẹt, khi đưa ra th ực nghi ệm trên Web b ằng ảnh m ới thì liên ti ếp nhận 
+sai. 
+Giai đo ạn 2: T ại sao mô hình hi ện tại hoạt động rất tốt (Accuracy 90%+)?  
+• Giải quy ết triệt để sự thiên v ị (Undersampling):  Can thi ệp đầu tiên c ủa 
+nhóm là kéo t ỷ lệ ảnh Chó và Mèo v ề trạng thái cân b ằng xấp xỉ 50-50. Nh ờ 
+môi trư ờng công b ằng, hàm Loss (Binary Crossentropy) b ắt buộc mô hình 
+phải đi "tìm c ấu trúc đôi tai, cái mõm" thay vì nh ắm mắt phỏng đoán là con 
+Mèo đ ể ăn đi ểm như trư ớc. 
+• Chiến lược Học chuy ển giao (Transfer Learning - MobileNetV2):  Đây 
+là mấu chốt quy ết định sự thành công. Vì ngân hàng ảnh của đề tài quá ít, 
+
+ 
+ 
+32 
+ nhóm không b ắt máy tính ph ải học khái ni ệm "chó và mèo" t ừ đầu. Thay 
+vào đó, nhóm t ải xuống m ột "Não b ộ" khổng lồ mang tên MobileNetV2 do 
+Google rèn dũa trên 14 tri ệu bức ảnh. Mô hình cơ s ở (Pre-trained Model) 
+này đã th ừa am hi ểu cách bóc tách đâu là c ạnh vi ền, hình kh ối, góc đ ộ. Nhờ 
+chuy ển giao th ẳng kh ối kiến thức có s ẵn này (đóng băng tr ọng số Base 
+layer), ta ch ỉ cần "ch ắp nối" thêm m ột lớp phân lo ại (Dense) ở cuối. Vì v ậy, 
+chỉ với tệp siêu nh ỏ (hơn 100 ảnh), mô hình v ẫn tự cập nhật trí tu ệ xuất sắc 
+và trả về kết quả 90% vư ợt kỳ vọng. 
+• Tăng cư ờng d ữ liệu (Data Augmentation):  Thuật toán s ử dụng thư 
+viện ImageDataGenerator  xoay 20 đ ộ, phóng to, trư ợt ma tr ận pixel các ảnh 
+học liệu ngay trên bo m ạch RAM. Tuy ch ỉ có 110 m ẫu thật, nhưng tr ải qua 
+10 vòng h ọc (10 Epochs), máy tính l ầm tư ởng nó đang đư ợc nhìn ở hàng 
+ngàn bi ến thể góc ch ụp khác nhau. Đây là đi ểm ch ốt bảo vệ mạng AI v ững 
+chắc, không b ị học vẹt. 
+2. Phân tích l ỗi (Error Analysis)  
+2.1. Phân lo ại lỗi 
+False Positive (FP)  
+Dự đoán Chó → thành Mèo  
+Ví dụ: 
+• Chó Ph ốc Sóc (Pomeranian)  
+• Chó Pug (mõm ng ắn, mắt to) 
+Đặc điểm gây nh ầm: 
+• Tai v ểnh gi ống mèo  
+• Lông dày, m ặt tròn  
+False Negative (FN)  
+Dự đoán Mèo → thành Chó  
+Ví dụ: 
+• Mèo Ba Tư lông xù  
+• Mèo n ằm cu ộn tròn  
+
+ 
+ 
+33 
+ Đặc điểm gây nh ầm: 
+• Mất hình d ạng khuôn m ặt 
+• Không rõ đ ặc trưng "mèo"  
+2.2. Nguyên nhân gây l ỗi 
+Che khu ất đặc trưng (Occlusion & Pose)  
+• Mô hình c ần: 
+o mắt 
+o mõm  
+o tai 
+Khi b ị che: 
+• Feature map b ị thiếu thông tin  
+• Convolution không b ắt được pattern  
+Nhiễu nền (Background Noise)  
+Ví dụ: 
+• Lông mèo trùng màu v ới sofa  
+• Chó n ằm trên th ảm cùng màu  
+Hệ quả: 
+• Viền (edge) b ị mất 
+• Mô hình không tách đư ợc vật thể 
+Thiếu đa d ạng dữ liệu 
+• Dataset ch ỉ ~100 ảnh 
+• Không đ ủ đại diện cho:  
+o hàng trăm gi ống chó/mèo  
+Dẫn đến: 
+• Không t ổng quát hóa t ốt 
+• Dễ nhầm các trư ờng hợp “lạ” 
+
+ 
+ 
+34 
+ Giới hạn của đặc trưng CNN  
+• CNN ch ủ yếu học: 
+o pixel  
+o texture  
+Không hi ểu: 
+• ngữ cảnh 
+• hành vi  
+Sơ đ ồ nguyên nhân l ỗi 
+ 
+3. Hạn chế của hệ thống (Limitations)  
+Giới hạn bài toán (Single Object)  
+• Chỉ xử lý 1 đối tượng/ảnh 
+Không x ử lý đư ợc: 
+• Ảnh có nhi ều con v ật 
+• Ảnh có ngư ời + thú  
+
+
+ 
+ 
+35 
+ Không có kh ả năng t ự học (Online Learning)  
+Hiện tại: 
+• Model cố định sau khi train  
+Chưa có:  
+• Auto retrain  
+• Learning t ừ dữ liệu mới 
+Phụ thuộc vào d ữ liệu nh ỏ 
+• Dataset nh ỏ → dễ sai 
+Chưa h ỗ trợ thời gian th ực 
+• Chỉ nhận ảnh upload  
+Chưa có:  
+• Camera realtime  
+• Video stream  
+Hạn chế về triển khai  
+• Chạy local  
+• Chưa deploy cloud  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+36 
+         CHƯƠNG 6:  KẾT LU ẬN VÀ HƯ ỚNG PHÁT TRI ỂN  
+1. Kết luận 
+          Trong đ ề tài này, h ệ thống phân lo ại hình ảnh chó và mèo đã đư ợc xây 
+dựng và đánh giá thông qua nhi ều mô hình h ọc máy khác nhau, bao g ồm 
+Logistic Regression, Random Forest và CNN. M ục tiêu ban đ ầu của đề tài là 
+nghiên c ứu, tri ển khai và so sánh hi ệu quả của các mô hình trong bài toán phân 
+loại ảnh, đ ồng th ời tích h ợp vào m ột hệ thống web minh h ọa. 
+Kết quả thực nghi ệm cho th ấy: 
+• Đã xây d ựng thành công pipeline x ử lý dữ liệu, hu ấn luy ện và đánh giá 
+mô hình.  
+• Đã áp d ụng và so sánh nhi ều thu ật toán khác nhau:  
+o Logistic Regression (mô hình tuy ến tính)  
+o Random Forest (mô hình ensemble)  
+o CNN (mô hình Deep Learning)  
+• Mô hình Random Forest  cho k ết quả tốt nhất với độ chính xác cao nh ất 
+trên t ập kiểm tra (~61.8%), cho th ấy khả năng t ổng quát hóa t ốt hơn so 
+với các mô hình còn l ại. 
+• Mô hình Logistic Regression  đạt độ chính xác cao trên t ập huấn luy ện 
+nhưng gi ảm đáng k ể trên t ập kiểm tra, th ể hiện hiện tượng overfitting.  
+• Mô hình CNN  chưa đ ạt hiệu quả như mong đ ợi do các h ạn chế về dữ 
+liệu, ki ến trúc m ạng và quá trình hu ấn luy ện, dẫn đến hiện tượng 
+underfitting.  
+Bên c ạnh đó, đ ề tài cũng đã th ực hiện: 
+• Phân tích chi ti ết các ch ỉ số đánh giá như Accuracy, Precision, Recall và 
+F1-score  
+• Trực quan hóa k ết quả thông qua bi ểu đồ Learning Curve và Confusion 
+Matrix  
+• Phân tích l ỗi và ch ỉ ra các nguyên nhân ảnh hư ởng đến hiệu quả mô hình  
+
+ 
+ 
+37 
+ Từ các k ết quả đạt được, có th ể thấy rằng m ục tiêu đ ề ra ban đ ầu của đề tài đã 
+được hoàn thành ở mức tốt, đặc biệt trong vi ệc xây d ựng và đánh giá các mô 
+hình h ọc máy cho bài toán phân lo ại ảnh. 
+Đề tài không ch ỉ giúp c ủng cố kiến thức về học máy và x ử lý ảnh mà còn rèn 
+luyện kỹ năng xây d ựng, đánh giá và phân tích mô hình AI trong th ực tế. 
+2. Hư ớng phát tri ển 
+          Mặc dù h ệ thống đã đ ạt được một số kết quả nhất định, tuy nhiên v ẫn còn 
+nhiều hướng cải tiến có th ể thực hiện trong tương lai nh ằm nâng cao hi ệu quả 
+và tính ứng dụng th ực tế của đề tài. 
+          Trước hết, việc mở rộng và c ải thiện dữ liệu là yếu tố quan tr ọng nh ất. 
+Nếu có thêm th ời gian, h ệ thống sẽ được huấn luy ện trên t ập dữ liệu lớn hơn 
+với số lượng ảnh đa d ạng hơn v ề góc ch ụp, ánh sáng và gi ống loài. Ngoài ra, 
+có th ể áp dụng các k ỹ thuật tăng cư ờng dữ liệu (Data Augmentation)  như xoay 
+ảnh, lật ảnh, thay đ ổi độ sáng đ ể giúp mô hình h ọc được nhi ều đặc trưng hơn 
+và tăng kh ả năng t ổng quát hóa.  
+          Bên c ạnh đó, vi ệc cải tiến mô hình h ọc sâu  là một hướng đi quan tr ọng. 
+Thay vì s ử dụng CNN đơn gi ản, có th ể áp dụng các ki ến trúc m ạnh hơn như 
+VGG16, ResNet ho ặc MobileNet  thông qua phương pháp Transfer Learning . 
+Các mô hình này đã đư ợc huấn luy ện trư ớc trên t ập dữ liệu lớn, do đó có kh ả 
+năng trích xu ất đặc trưng t ốt hơn và c ải thiện đáng k ể độ chính xác.  
+          Ngoài ra, c ần thực hiện tinh ch ỉnh siêu tham s ố (Hyperparameter Tuning)  
+như learning rate, batch size, s ố epoch ho ặc số lượng lớp trong m ạng để tìm ra 
+cấu hình t ối ưu cho mô hình. Vi ệc sử dụng các k ỹ thuật như Grid Search ho ặc 
+Random Search có th ể giúp c ải thiện hiệu suất một cách đáng k ể. 
+Một hướng phát tri ển khác là cải thiện hệ thống web . Cụ thể: 
+• Tối ưu t ốc độ xử lý và th ời gian ph ản hồi 
+• Hỗ trợ upload nhi ều ảnh cùng lúc  
+• Lưu l ịch sử dự đoán c ủa ngư ời dùng  
+• Xây d ựng giao di ện thân thi ện và tr ực quan hơn  
+
+ 
+ 
+38 
+           Ngoài ra, h ệ thống có th ể được mở rộng để phân lo ại nhiều loại động vật 
+khác nhau , không ch ỉ dừng lại ở chó và mèo. Đi ều này s ẽ giúp tăng tính ứng 
+dụng th ực tế của hệ thống. 
+          Cuối cùng, có th ể triển khai h ệ thống trên môi trư ờng th ực tế như cloud 
+hoặc tích h ợp vào ứng dụng di đ ộng để người dùng có th ể sử dụng m ột cách 
+thuận tiện hơn.  
+          Những hư ớng phát tri ển trên không ch ỉ giúp nâng cao hi ệu quả mô hình 
+mà còn m ở rộng kh ả năng ứng dụng của hệ thống trong các bài toán nh ận diện 
+hình ảnh th ực tế. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+39 
+ TÀI LI ỆU THAM KH ẢO 
+1. I. Goodfellow, Y. Bengio, and A. Courville, Deep Learning . MIT Press, 
+2016.  
+2. A. Géron, Hands -On Machine Learning with Scikit -Learn, Keras & 
+TensorFlow . O’Reilly Media, 2019.  
+3. K. He, X. Zhang, S. Ren, and J. Sun, “Deep Residual Learning for Image 
+Recognition,” in Proceedings of the IEEE Conference on Computer Vision 
+and Pattern Recognition (CVPR) , 2016.  
+4. M. Abadi et al., “TensorFlow: Large -Scale Machine Learning on 
+Heterogeneous Systems,” 2015. [Online]. Available: 
+https://www.tensorflow.org  
+5. F. Pedregosa et al., “Scikit -learn: Machine Learning in Python,” Journal 
+of Machine Learning Research , vol. 12, pp. 2825 –2830, 2011.  
+6. Kaggle, “Dogs vs Cats Dataset.” [Online]. Available: 
+https://www.kaggle.com/c/dogs -vs-cats 
+7. PyTorch Team, “PyTorch Documentation.” [Online]. Available: 
+https://pytorch.org  
+8. Chollet, F., “Keras Documentation.” [Online]. Available: https://keras.io  
+9. J. Brownlee, “Machine Learning Mastery Blog.” [Online]. Available: 
+https://machinelearningmastery.com  
+[10. GitHub, “Image Classification Projects Repository.” [Online]. 
+Available: https://github.com  
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+40 
+                                              PHỤ LỤC 
+Link Github ch ứa Source code.  
+ 
+Hướng dẫn chạy code (Readme).  
+1. Yêu c ầu hệ thống (Prerequisites):  
+• Máy tính có cài đ ặt ngôn ng ữ Python 3.9  trở lên (Khuy ến ngh ị bản 
+Python 3.12).  
+• Trình so ạn thảo mã ngu ồn (Visual Studio Code, PyCharm, v.v.).  
+2. Cài đ ặt các thư vi ện ph ụ thuộc (Dependencies):  Di chuy ển vào thư m ục 
+chứa đồ án, m ở cửa sổ dòng l ệnh (Terminal/Command Prompt) và ch ạy lệnh 
+sau đ ể tải toàn b ộ các thư vi ện AI & Web c ần thiết:  
+ 
+3. Quy trình v ận hành AI (Training & Evaluation):  Nếu đây là l ần chạy 
+đầu tiên, mã ngu ồn chưa có "Não b ộ" (Tr ọng số mô hình). C ần phải dạy lại 
+theo trình t ự sau: 
+Quá trình mư ợn kiến trúc MobileNetV2 và d ạy trên t ập ảnh chó mèo. M ở 
+Terminal và gõ:    
+                     
+4. Kh ởi động Ứng dụng Web (Web Server):  Sau khi AI đã có hình hài, ti ến 
+hành b ật Máy ch ủ Web Flask và k ết nối với cơ s ở dữ liệu (SQLite) thông qua 
+lệnh: 
+ 
+Khi Terminal hi ện dòng ch ữ Running on http://127.0.0.1:5000 , hãy dùng trình 
+duyệt Web (Chrome/Edge) và truy c ập vào đư ờng dẫn trên đ ể sử dụng hệ 
+thống. 
+                              
+
+
+ 
+ 
+41 
+  
